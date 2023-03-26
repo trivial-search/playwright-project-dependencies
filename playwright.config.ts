@@ -1,5 +1,6 @@
 import { defineConfig } from '@playwright/test';
 import path from 'path';
+import dotenv from 'dotenv';
 
 require('dotenv').config();
 
@@ -27,8 +28,8 @@ export default defineConfig({
     },
     // this project depends on the setup project and matches all tests ending with loggedin.spec.ts
     {
-      name: 'e2e tests logged in',
-      testMatch: '**/*loggedin.spec.ts',
+      name: 'dependent on setup',
+      testMatch: '**/*after_login.spec.ts',
       dependencies: ['setup'],
       use: {
         storageState: STORAGE_STATE,
