@@ -29,7 +29,7 @@ export default defineConfig({
     // subsequent tests that are dependent on set up tests
     {
       name: 'dependent on setup',
-      testMatch: '**/*after_login.spec.ts',
+      testMatch: '**/*Post_Login.spec.ts',
       dependencies: ['setup'],
       use: {
         storageState: STORAGE_STATE,
