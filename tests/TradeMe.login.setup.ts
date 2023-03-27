@@ -7,9 +7,9 @@ setup('perform login', async ({ page }) => {
   await page.getByText('Register Log in').first().click();
   await page.getByRole('link', { name: 'Log in' }).first().click();
   await page.frameLocator('internal:role=dialog >> iframe').getByLabel('Email').click();
-  await page.frameLocator('internal:role=dialog >> iframe').getByLabel('Email').fill(process.env.USERNAME!);
+  await page.frameLocator('internal:role=dialog >> iframe').getByLabel('Email').fill(process.env.TM_USER_NAME!);
   await page.frameLocator('internal:role=dialog >> iframe').getByLabel('Email').press('Tab');
-  await page.frameLocator('internal:role=dialog >> iframe').getByLabel('Password').fill(process.env.PASSWORD!);
+  await page.frameLocator('internal:role=dialog >> iframe').getByLabel('Password').fill(process.env.TM_PWD!);
   await page.frameLocator('internal:role=dialog >> iframe').getByLabel('Password').press('Enter');
 
   await expect(page.getByRole('link', { name: 'Log out' }).first()).toBeVisible();
