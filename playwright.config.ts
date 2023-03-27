@@ -1,6 +1,6 @@
 import { defineConfig } from '@playwright/test';
 import path from 'path';
-import dotenv from 'dotenv';
+
 
 require('dotenv').config();
 
