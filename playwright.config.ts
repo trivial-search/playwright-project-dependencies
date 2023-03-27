@@ -14,7 +14,7 @@ export default defineConfig({
   fullyParallel: true,
 
   use: {
-    baseURL: 'https://trademe.co.nz',
+    baseURL: 'https://en.wikipedia.org',
     // run traces on the first retry of a failed test
     trace: 'on-first-retry',
   },

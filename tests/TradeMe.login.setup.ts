@@ -3,16 +3,12 @@ import { STORAGE_STATE } from '../playwright.config';
 
 setup('perform login', async ({ page }) => {
   await page.goto('/');
-  await page.getByText('Register Log in').first().click();
-  await page.getByRole('link', { name: 'Log in' }).first().click();
-  await page.frameLocator('internal:role=dialog >> iframe').getByLabel('Email').click();
-  await page.frameLocator('internal:role=dialog >> iframe').getByLabel('Email').fill(process.env.USERNAME);
-  await page.frameLocator('internal:role=dialog >> iframe').getByLabel('Email').press('Tab');
-  await page.frameLocator('internal:role=dialog >> iframe').getByLabel('Password').fill(process.env.PASSWORD);
-  await page.frameLocator('internal:role=dialog >> iframe').getByLabel('Password').press('Enter');
+  await page.getByRole('link', { name: 'Log in' }).click();
+  await page.getByPlaceholder('Enter your username').fill(process.env.USERNAME!);
+  await page.getByPlaceholder('Enter your password').fill(process.env.PASSWORD!);
+  await page.getByRole('button', { name: 'Log in' }).click();
 
-  await expect(page.getByRole('link', { name: 'Log out' }).first()).toBeVisible();
-
-  await page.context().storageState({path: STORAGE_STATE});
+  await expect(page.getByRole('button', { name: 'Personal tools' })).toBeVisible();
+  await page.context().storageState({ path: STORAGE_STATE });
   
 });
