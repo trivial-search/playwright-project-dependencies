@@ -9,8 +9,8 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env: 
-      USERNAME: ${{secrets.USERNAME}}
-      PASSWORD: ${{secrets.PASSWORD}}
+      USERNAME: ${{secrets.TM_user_name}}
+      PASSWORD: ${{secrets.TM_pwd}}
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
