@@ -8,7 +8,6 @@ export const STORAGE_STATE = path.join(__dirname, 'playwright/.auth/user.json');
 
 export default defineConfig({
   testDir: './tests',
-  reporter: [['list'], ['html']],
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Run tests in files in parallel */
@@ -21,7 +20,7 @@ export default defineConfig({
   },
 
   projects: [
-    // any set up tests will be matches from here
+    // any set up tests will be matched from here
     {
       name: 'setup',
       testMatch: '**/*.setup.ts',
@@ -31,13 +30,14 @@ export default defineConfig({
       name: 'dependent on setup',
       testMatch: '**/*Post_Login.spec.ts',
       dependencies: ['setup'],
+      // storageState to pass to these tests from setup test
       use: {
         storageState: STORAGE_STATE,
       },
     },
-    // this project runs all tests expect the setup and logged in tests
+    //  tests that dont require test setup as a dependency
     {
-      name: 'e2e tests',
+      name: 'non-set up dependent tests',
       testIgnore: ['**/*loggedin.spec.ts', '**/*.setup.ts'],
     },
   ],
