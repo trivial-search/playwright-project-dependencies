@@ -15,18 +15,18 @@ export default defineConfig({
   fullyParallel: true,
 
   use: {
-    baseURL: 'https://en.wikipedia.org',
+    baseURL: 'https://trademe.co.nz',
     // run traces on the first retry of a failed test
     trace: 'on-first-retry',
   },
 
   projects: [
-    // this matches all tests ending with .setup.ts
+    // any set up tests will be matches from here
     {
       name: 'setup',
       testMatch: '**/*.setup.ts',
     },
-    // this project depends on the setup project and matches all tests ending with loggedin.spec.ts
+    // subsequent tests that are dependent on set up tests
     {
       name: 'dependent on setup',
       testMatch: '**/*after_login.spec.ts',
