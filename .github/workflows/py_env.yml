@@ -7,7 +7,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      MY_VAR={{secret.MY_VAR}}
+      MY_VAR: {{secrets.MY_VAR}}
 
     steps:
       - uses: actions/checkout@v3
