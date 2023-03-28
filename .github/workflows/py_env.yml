@@ -2,9 +2,10 @@ name: Python env output
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main, master ]
+  workflow_dispatch:
 
 jobs:
   build:
