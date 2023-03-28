@@ -20,8 +20,12 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    - name: put env
+      run: cat .env
     - name: Run Playwright tests
       run: npx playwright test
+    - name: put env
+      run: cat .env
     #- uses: actions/upload-artifact@v3
     #  if: always()
     #  with:
