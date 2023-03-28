@@ -36,5 +36,5 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-    -name: Run my wee env script
+    - name: Run my wee env script
         python env.py
