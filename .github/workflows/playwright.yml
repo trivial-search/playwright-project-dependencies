@@ -9,7 +9,7 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env: 
-      USERNAME: ${{secrets.USERNAME1}}
+      USERNAME: ${{secrets.USERNAME}}
       PASSWORD: ${{secrets.PASSWORD}}
     steps:
     - uses: actions/checkout@v3
