@@ -38,7 +38,7 @@ export default defineConfig({
     //  tests that dont require test setup as a dependency
     {
       name: 'non-set up dependent tests',
-      testIgnore: ['**/*loggedin.spec.ts', '**/*.setup.ts'],
+      testIgnore: ['**/*Post_Login.spec.ts', '**/*.setup.ts'],
     },
   ],
 });
