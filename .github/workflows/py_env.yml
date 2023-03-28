@@ -10,6 +10,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env: 
+      MY_VAR1: ${{secrets.MY_VAR}}
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10", "3.11"]
